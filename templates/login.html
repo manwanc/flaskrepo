@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restful Flask Login</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a href="/" class="navbar-brand">Restful Flask Login</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="About">About</a></li>
+                    <li><a href="Contact">Contact</a></li>
+                    <li><a href="login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <hr />
+        <h1>Please login</h1>
+        <br>
+        <hr />
+        <form action="" method="post">
+            <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+            <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+            <input class="btn btn-default" type="submit" value="Login">
+        </form>
+        <hr /> {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }} {% endif %}
+
+            <hr />
+            <br>
+            <h2>Or Sign-Up </h2>
+            <hr />
+            <form action="/signup" method="get">
+                <input type="text" placeholder="Username" name="username" value="signup">
+                <input type="text" placeholder="password" name="password" value="password">
+                <input type="submit" value="Sign-Up" />
+            </form>
+            <hr />
+            <hr />
+            <hr />
+            <footer>
+                <p>&copy; {{ year }} - Flask Polling Application</p>
+            </footer>
+    </div>
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+</body>
+
+</html>
